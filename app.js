@@ -45,31 +45,22 @@ async function main(){
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret: process.env.secret,
+        secret: process.env.SESSION_SECRET,
     },
     touchAfter: 24 * 3600,
 });
 
-store.on("error", (err) => {
-    console.log("Error in Mongo Session Store", err);
-})
-
 const sessionOptions = {
     store,
-    secret: process.env.secret,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie :{
+    cookie: {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
     }
 };
-
-// app.get("/", (req, res) => {
-//     res.send("Hii, I am root...!");
-// });
-
 
 app.use(session(sessionOptions));
 app.use(flash());
