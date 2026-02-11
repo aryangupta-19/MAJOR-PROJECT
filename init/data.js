@@ -349,6 +349,4 @@ const sampleListings = [
   },
 ];
 
-module.exports = { data: sampleListings };
-  
-  module.exports = { data: sampleListings };  // exported as an object 
+module.exports = { data: sampleListings };  // exported as an object 
