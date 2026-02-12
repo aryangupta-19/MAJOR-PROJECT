@@ -1,6 +1,8 @@
-if(process.env.NODE_ENV !== "production"){
-    require('dotenv').config();
-}
+// if(process.env.NODE_ENV !== "production"){
+//     require('dotenv').config();
+// }
+
+require('dotenv').config();
 
 console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
 
@@ -45,7 +47,9 @@ async function main(){
     // await mongoose.connect(MONGO_URL);
     await mongoose.connect(dbUrl);
 }
-
+if (!dbUrl) {
+    console.error("CRITICAL ERROR: ATLASDB_URL is not defined in Railway Variables!");
+}
 const store = MongoStore.default.create({
     mongoUrl: dbUrl,
     crypto: {
