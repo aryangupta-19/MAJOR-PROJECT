@@ -1,95 +1,100 @@
 {
   
  "engines": {
-    "node": "20.x"
-  },
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
   
-  "name": "majorproject",
+   
+ "node": "20.x"
   
-  "version": "1.0.0",
+ },
   
-  "description": "",
+ "scripts": {
   
-  "main": "app.js",
+   
+ "start": "node app.js",
   
-
-  "keywords": [],
+   
+ "dev": "nodemon app.js"
   
-  "author": "",
+ },
   
-  "license": "ISC",
+ "name": "majorproject",
   
-  "type": "commonjs",
+ "version": "1.0.0",
   
-  "dependencies": {
+ "description": "",
   
-    
-  "@mapbox/mapbox-sdk": "^0.16.2",
+ "main": "app.js",
   
-    
-  "cloudinary": "^1.41.3",
+ "keywords": [],
   
-    
-  "connect-flash": "^0.1.1",
+ "author": "",
   
-    
-  "connect-mongo": "^6.0.0",
+ "license": "ISC",
   
-    
-  "dotenv": "^17.2.3",
+ "type": "commonjs",
   
-    
-  "ejs": "^3.1.10",
+ "dependencies": {
   
-    
-  "ejs-mate": "^4.0.0",
+   
+ "@mapbox/mapbox-sdk": "^0.16.2",
   
-    
-  "express": "^5.2.1",
+   
+ "cloudinary": "^1.41.3",
   
-    
-  "express-session": "^1.19.0",
+   
+ "connect-flash": "^0.1.1",
   
-    
-  "express-sessions": "^1.0.6",
+   
+ "connect-mongo": "^6.0.0",
   
-    
-  "joi": "^18.0.2",
+   
+ "dotenv": "^17.2.3",
   
-    
-  "method-override": "^3.0.0",
+   
+ "ejs": "^3.1.10",
   
-    
-  "mongodb": "7.0",
+   
+ "ejs-mate": "^4.0.0",
   
-    
-  "mongoose": "^9.1.6",
+   
+ "express": "^5.2.1",
   
-    
-  "multer": "^2.0.2",
+   
+ "express-session": "^1.19.0",
   
-    
-  "multer-storage-cloudinary": "^4.0.0",
+   
+ "joi": "^18.0.2",
   
-    
-  "passport": "^0.7.0",
+   
+ "method-override": "^3.0.0",
   
-    
-  "passport-local": "^1.0.0",
+   
+ "mongodb": "7.0",
   
-    
-  "passport-local-mongoose": "^9.0.1"
+   
+ "mongoose": "^9.1.6",
   
-  },
+   
+ "multer": "^2.0.2",
   
-  "devDependencies": {
+   
+ "multer-storage-cloudinary": "^4.0.0",
   
-    
-  "nodemon": "^3.1.11"
+   
+ "passport": "^0.7.0",
   
-  }
+   
+ "passport-local": "^1.0.0",
+  
+   
+ "passport-local-mongoose": "^9.0.1"
+  
+ },
+  
+ "devDependencies": {
+  
+   
+ "nodemon": "^3.1.11"
+  
+ }
 }

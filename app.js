@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV != "production"){
+if(process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 }
 console.log("MAP_TOKEN:", process.env.MAP_TOKEN);
@@ -11,7 +11,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const {ExpressError} = require("./utils/ExpressError.js");
 const session = require('express-session');
-const MongoStore = require("connect-mongo").default;
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const User = require("./models/user.js");
 const passport = require("passport");
@@ -46,14 +46,14 @@ async function main(){
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret: process.env.SESSION_SECRET,
+        secret:process.env.SESSION_SECRET,
     },
     touchAfter: 24 * 3600,
 });
 
 const sessionOptions = {
     store,
-    secret: process.env.SESSION_SECRET,
+    secret:process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
