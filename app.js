@@ -1,6 +1,9 @@
 if(process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 }
+
+console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
+
 console.log("MAP_TOKEN:", process.env.MAP_TOKEN);
 console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
 const express = require("express");
@@ -43,7 +46,7 @@ async function main(){
     await mongoose.connect(dbUrl);
 }
 
-const store = MongoStore.create({
+const store = MongoStore.default.create({
     mongoUrl: dbUrl,
     crypto: {
         secret:process.env.SESSION_SECRET,
