@@ -43,6 +43,8 @@ main().then(() => {
 async function main(){
     // await mongoose.connect(MONGO_URL);
     await mongoose.connect(dbUrl);
+    // console.log("DB Host:", mongoose.connection.host);
+    // console.log("DB Name:", mongoose.connection.name);
 }
 if (!dbUrl) {
     console.error("CRITICAL ERROR: ATLASDB_URL is not defined in Railway Variables!");
@@ -64,7 +66,7 @@ const sessionOptions = {
         // expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: true,       // required in production 
+        secure: isProduction,       // required in production 
         sameSite: isProduction ? "none" : "lax",   // required in railway 
     }   
 };
