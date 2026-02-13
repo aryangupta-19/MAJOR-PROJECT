@@ -15,7 +15,7 @@ async function main(){
 }
 
 const initDB = async () => {
-    await Listing.deleteMany({});    //  sbse pehle already pde hue datyabase ko clean kro 
+    await Listing.deleteMany({});    //  sbse pehle already pde hue database ko clean kro 
     initdata.data = initdata.data.map((obj) => ({
         ...obj,
         owner: "697a45b55d790841d0249875",
