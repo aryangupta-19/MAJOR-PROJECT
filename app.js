@@ -1,8 +1,5 @@
-// if(process.env.NODE_ENV !== "production"){
-//     require('dotenv').config();
-// }
-
 require('dotenv').config();
+const isProduction = process.env.NODE_ENV === "production";
 
 console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
 
@@ -62,14 +59,17 @@ const sessionOptions = {
     store,
     secret:process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,   //
     cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        // expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-    }
+        secure: true,       // required in production 
+        sameSite: "none",   // required in railway 
+    }   
 };
 
+app.set("trust proxy", 1);  // Railway runs behind a proxy (HTTPS). Without this line, secure cookies won’t work properly.
 app.use(session(sessionOptions));
 app.use(flash());
 
