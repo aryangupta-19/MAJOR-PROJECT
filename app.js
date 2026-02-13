@@ -65,7 +65,7 @@ const sessionOptions = {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
         secure: true,       // required in production 
-        sameSite: "none",   // required in railway 
+        sameSite: isProduction ? "none" : "lax",   // required in railway 
     }   
 };
 
