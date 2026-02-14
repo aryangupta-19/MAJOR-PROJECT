@@ -27,7 +27,11 @@ module.exports.showListing = async (req, res) => {
         return res.redirect("/listings");
     }
     // console.log(listing);
-    res.render("listings/show.ejs", {listing});
+    // res.render("listings/show.ejs", {listing});
+    res.render("listings/show.ejs", { 
+        listing, 
+        mapToken: process.env.MAP_TOKEN // Add this line
+    });
 }
 
 module.exports.createListing =  async (req, res) => {
