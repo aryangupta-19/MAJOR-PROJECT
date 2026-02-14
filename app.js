@@ -1,10 +1,9 @@
 require('dotenv').config();
 const isProduction = process.env.NODE_ENV === "production";
 
-console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
-
-console.log("MAP_TOKEN:", process.env.MAP_TOKEN);
-console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
+// console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
+// console.log("MAP_TOKEN:", process.env.MAP_TOKEN);
+// console.log("MAP_TOKEN exists:", !!process.env.MAP_TOKEN);
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
