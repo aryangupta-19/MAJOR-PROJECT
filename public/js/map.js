@@ -1,5 +1,5 @@
 let map_token = mapToken;
-// console.log(mapToken);
+console.log(mapToken);
 mapboxgl.accessToken = map_token;
 
 const map = new mapboxgl.Map({
