@@ -18,7 +18,7 @@ const initDB = async () => {
     await Listing.deleteMany({});    //  sbse pehle already pde hue database ko clean kro 
     initdata.data = initdata.data.map((obj) => ({
         ...obj,
-        owner: "6985042a8d89662704184065",
+        owner: "699007610086cc5bfa3790af",
     }));
     await Listing.insertMany(initdata.data);
     // console.log(initdata.data);
