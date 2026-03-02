@@ -34,39 +34,41 @@ module.exports.showListing = async (req, res) => {
     });
 }
 
-module.exports.createListing =  async (req, res) => {
+module.exports.createListing = async (req, res) => {
+    try {
+        console.log("NODE_ENV:", process.env.NODE_ENV);
+        console.log("MAP_TOKEN VALUE:", process.env.MAP_TOKEN);
 
-    console.log("NODE_ENV:", process.env.NODE_ENV);
-    console.log("MAP_TOKEN VALUE:", process.env.MAP_TOKEN);
-    
-    const  mapToken = process.env.MAP_TOKEN;
-    const geocodingClient = mbxgeocoding({ accessToken: mapToken });
+        const mapToken = process.env.MAP_TOKEN;
+        const geocodingClient = mbxgeocoding({ accessToken: mapToken });
 
-    let response = await geocodingClient.forwardGeocode({
-        query: req.body.listing.location,
-        limit: 1,
-      })
-        .send()
+        let response = await geocodingClient.forwardGeocode({
+            query: req.body.listing.location,
+            limit: 1,
+        }).send();
 
-        // console.log();
-        // res.send("done");
+        console.log("GEOCODING RESPONSE:", response.body);
 
-    let url = req.file.path;
-    let filename = req.file.filename;
-    // console.log(url, "..", filename);
-    const listing = req.body.listing;
-    const newListing = new Listing(listing);
-    newListing.owner = req.user._id;
-    newListing.image = {url, filename};
+        let url = req.file.path;
+        let filename = req.file.filename;
 
-    newListing.geometry = response.body.features[0].geometry;
+        const listing = req.body.listing;
+        const newListing = new Listing(listing);
+        newListing.owner = req.user._id;
+        newListing.image = { url, filename };
 
-    let savedListing = await newListing.save();
-    
-    console.log(savedListing);
-    req.flash("success", "New Listing Created!");
-    res.redirect("/listings");
-}
+        newListing.geometry = response.body.features[0].geometry;
+
+        let savedListing = await newListing.save();
+
+        req.flash("success", "New Listing Created!");
+        res.redirect("/listings");
+
+    } catch (err) {
+        console.error("FULL GEOCODING ERROR:", err.response?.body || err);
+        res.status(500).send("Geocoding Failed");
+    }
+};
 
 module.exports.renderEditForm = async (req,res) => {
     let {id} = req.params;
