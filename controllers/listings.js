@@ -39,7 +39,7 @@ module.exports.createListing = async (req, res) => {
         console.log("NODE_ENV:", process.env.NODE_ENV);
         console.log("MAP_TOKEN VALUE:", process.env.MAP_TOKEN);
 
-        const mapToken = process.env.MAP_TOKEN;
+        const mapToken = process.env.MAP_TOKEN.trim();
         const geocodingClient = mbxgeocoding({ accessToken: mapToken });
 
         let response = await geocodingClient.forwardGeocode({
