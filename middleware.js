@@ -46,7 +46,7 @@ module.exports.validateReview = (req, res, next) => {
     // console.log("Going to validate !");
     if(error){
         let errMsg = error.details.map((el) => el.message).join(',');
-        console.log(errMsg);
+        // console.log(errMsg);
         throw new ExpressError(400, errMsg);
         // console.log(errMsg);
     }else{

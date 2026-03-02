@@ -31,7 +31,7 @@ router.
 // router.get("/", wrapAsync(listingController.index));
 
 // new route 
-router.get("/new", isLoggedIn, listingController.renderNewForm);
+// router.get("/new", isLoggedIn, listingController.renderNewForm);
 
 //show route
 // router.get("/:id", wrapAsync(listingController.showListing));
