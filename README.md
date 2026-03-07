@@ -2,7 +2,7 @@
 
 Find Your Perfect Stay Anywhere
 
-StayFinder is a full-stack accommodation discovery platform inspired by modern travel marketplaces.
+StayFinder is my first full-stack project, It is a accommodation discovery platform inspired by modern travel marketplaces.
 It allows users to explore property listings, upload new stays, leave reviews, and visualize locations on an interactive map.
 
 The application demonstrates end-to-end web development, including authentication, RESTful APIs, cloud media storage, server-side validation, and responsive UI design.
